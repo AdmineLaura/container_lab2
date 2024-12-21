@@ -67,10 +67,11 @@ git clone https://github.com/AdmineLaura/homework.git
 ./0_install_all.sh
 ``` 
 <br>
+
 #### 3. Run script check_bgp_status.sh to check if bgp sessions are established.
    _This script will show bgp summary of each container to verity the bpg status_
 ```
-./check_bgp_status.sh
+sudo ./check_bgp_status.sh
 ```   
 <br>
 <br>
@@ -91,40 +92,40 @@ sudo containerlab inspect
 ```
 
 ```
-╭─────────────────────────────────┬────────────────────┬─────────┬───────────────────╮
-│               Name              │     Kind/Image     │  State  │   IPv4/6 Address  │
-├─────────────────────────────────┼────────────────────┼─────────┼───────────────────┤
-│ clab-hostinger-homework-leaf01  │ cumulus_cvx        │ running │ 172.20.20.2       │
-│                                 │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::3 │
-├─────────────────────────────────┼────────────────────┼─────────┼───────────────────┤
-│ clab-hostinger-homework-leaf02  │ cumulus_cvx        │ running │ 172.20.20.4       │
-│                                 │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::4 │
-├─────────────────────────────────┼────────────────────┼─────────┼───────────────────┤
-│ clab-hostinger-homework-spine01 │ cumulus_cvx        │ running │ 172.20.20.3       │
-│                                 │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::2 │
-╰─────────────────────────────────┴────────────────────┴─────────┴───────────────────╯
+╭───────────────────────────────┬────────────────────┬─────────┬───────────────────╮
+│              Name             │     Kind/Image     │  State  │   IPv4/6 Address  │
+├───────────────────────────────┼────────────────────┼─────────┼───────────────────┤
+│ clab-network-homework-leaf01  │ cumulus_cvx        │ running │ 172.20.20.2       │
+│                               │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::3 │
+├───────────────────────────────┼────────────────────┼─────────┼───────────────────┤
+│ clab-network-homework-leaf02  │ cumulus_cvx        │ running │ 172.20.20.4       │
+│                               │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::4 │
+├───────────────────────────────┼────────────────────┼─────────┼───────────────────┤
+│ clab-network-homework-spine01 │ cumulus_cvx        │ running │ 172.20.20.3       │
+│                               │ networkop/cx:4.3.0 │         │ 3fff:172:20:20::2 │
+╰───────────────────────────────┴────────────────────┴─────────┴───────────────────╯
 ```
 (The output should confirm all nodes are running.)
 <br>
 
 Confirm that BGP sessions are established among all peers.
 ```
-docker exec clab-hostinger-homework-spine01 vtysh -c "show bgp summary"
+docker exec clab-network-homework-spine01 vtysh -c "show bgp summary"
 ```
 or using Cumulus commands:
 ```
-docker exec clab-hostinger-homework-spine01 net show bgp summary
+docker exec clab-network-homework-spine01 net show bgp summary
 ```
 
 
 Show routes that were learned from BGP in the routing table. 
 ```
-docker exec clab-hostinger-homework-leaf01 vtysh -c "show ip route bgp"     ??????
+docker exec clab-network-homework-leaf01 vtysh -c "show ip route bgp"     ??????
 ```
 or using Cumulus commands:
 ```
-docker exec clab-hostinger-homework-spine01 net show bgp Show all routes    ?????
+docker exec clab-network-homework-spine01 net show bgp Show all routes    ?????
 ```
 ```
-docker exec clab-hostinger-homework-spine01 net   ?????
+docker exec clab-network-homework-spine01 net   ?????
 ```
