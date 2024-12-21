@@ -57,7 +57,7 @@ clab-hostinger-homework-spine01:
 
 #### 1. Download repo files to the Ubuntu server and place them to users home directory.
 ```
-git clone https://github.com/AdmineLaura/homework.git
+git clone https://github.com/AdmineLaura/containerlab_test.git
 ```  
 <br>
 
