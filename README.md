@@ -10,7 +10,7 @@ BGP sessions are configured between spine and each of leaf switches.
 To recreate this lab you need to have basic familiarity with Linux (Ubuntu), Docker, and containerlab. This lab was created and tested on an Ubuntu VM.
 
 Environment:
-- Ubuntu 22.04 (be sure that curl is pre-installed)
+- Ubuntu 22.04 (be sure that curl and git are pre-installed)
 - Docker 27.4.1
 - Containerlab v0.60.1
 - Cumulus_cvx networkop/cx:4.3.0 image
