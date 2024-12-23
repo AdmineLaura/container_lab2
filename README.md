@@ -100,19 +100,20 @@ sudo containerlab inspect
 
 Confirm that BGP sessions are established among all peers.
 ```
-docker exec clab-network-homework-spine01 vtysh -c "show bgp summary"
+sudo docker exec clab-network-homework-spine01 vtysh -c "show bgp summary"
 ```
 or using Cumulus commands:
 ```
-docker exec clab-network-homework-spine01 net show bgp summary
+sudo docker exec clab-network-homework-spine01 net show bgp summary
 ```
-
+<br>
+<br>
 
 Show routes that were learned from BGP in the routing table. 
 ```
-docker exec clab-network-homework-spine01 vtysh -c "show ip route bgp"   
+sudo docker exec clab-network-homework-spine01 vtysh -c "show ip route bgp"   
 ```
 or using Cumulus commands:
 ```
-docker exec clab-network-homework-spine01 net show bgp
+sudo docker exec clab-network-homework-spine01 net show bgp
 ```
