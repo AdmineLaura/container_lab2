@@ -1,1 +1,10 @@
 
+auto eth0
+iface eth0 inet dhcp
+
+auto lo
+iface lo inet loopback
+    address 10.10.10.3/32
+
+auto swp50
+iface swp50
