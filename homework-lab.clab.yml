@@ -34,3 +34,4 @@ topology:
   links:
     - endpoints: ["spine01:swp1", "leaf01:swp50"]
     - endpoints: ["spine01:swp2", "leaf02:swp50"]
+    - endpoints: ["spine01:swp3", "leaf03:swp50"]
