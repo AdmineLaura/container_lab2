@@ -2,6 +2,7 @@
 
 leaf01=172.20.20.2
 leaf02=172.20.20.4
+leaf03=172.20.20.5
 spine01=172.20.20.3
 
 sudo apt-get install sshpass netcat -y
@@ -48,3 +49,12 @@ while ! nc -z $leaf02 22; do
 done
 
 sshpass -p root ssh-copy-id -i ~/.ssh/id_rsa.pub -o StrictHostKeyChecking=no root@$leaf02
+
+echo "Waiting until remote ssh will accept connections..."
+echo "      "
+
+while ! nc -z $leaf03 22; do
+  sleep 1
+done
+
+sshpass -p root ssh-copy-id -i ~/.ssh/id_rsa.pub -o StrictHostKeyChecking=no root@$leaf03
