@@ -23,6 +23,13 @@ topology:
       binds:
         - configs/leaf02/interfaces:/etc/network/interfaces
       mgmt-ipv4: 172.20.20.4
+    leaf03:
+      kind: cumulus_cvx
+      image: networkop/cx:4.3.0
+      runtime: docker
+      binds:
+        - configs/leaf03/interfaces:/etc/network/interfaces
+      mgmt-ipv4: 172.20.20.5
 
   links:
     - endpoints: ["spine01:swp1", "leaf01:swp50"]
