@@ -10,3 +10,6 @@ iface swp1
 
 auto swp2
 iface swp2
+
+auto swp3
+iface swp3
