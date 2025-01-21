@@ -1,5 +1,5 @@
 ---
-- name: ansible_testlab
+- name: Ansible_testlab
   hosts: all
   remote_user: root
 
