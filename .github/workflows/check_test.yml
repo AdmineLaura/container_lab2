@@ -16,14 +16,15 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
-        
+
+      - name: Install Python
+        run: |
+          sudo apt install python
+          python -m pip install --upgrade pip
+          pip install flake8
+          
       - name: Set up Python
         uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-          
-      - name: Install python dependencies
-        run: pip install flake8 pylint
         
       - name: Lint with flake8
         run: |
