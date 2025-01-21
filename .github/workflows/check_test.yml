@@ -19,7 +19,7 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
-          sudo apt install -y ansible=22.16.3
+          sudo apt install -y ansible=2.16.3
 
       - name: Install Ansible Lint
         run: pip install ansible-lint
