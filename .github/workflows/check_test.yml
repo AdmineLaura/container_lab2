@@ -30,9 +30,9 @@ jobs:
       - name: Install Ansible Lint
         run: |
           pip install ansible-lint
+          
+      - name: Check Ansible Playbook Syntax
+        run: ansible-playbook --syntax-check configure_all_hosts.yml
 
       - name: Lint Ansible Playbook
         run: ansible-lint configure_all_hosts.yml
-
-      - name: Check Ansible Playbook Syntax
-        run: ansible-playbook --syntax-check configure_all_hosts.yml
