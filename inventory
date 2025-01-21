@@ -4,10 +4,10 @@
 172.20.20.4 ansible_user=root
 172.20.20.5 ansible_user=root
 [leaf01]
-172.20.20.2 ansible_user=root hostname=leaf01 
+172.20.20.2 ansible_user=root hostname=leaf01.com 
 [leaf02]
-172.20.20.4 ansible_user=root hostname=leaf02
+172.20.20.4 ansible_user=root hostname=leaf02.com
 [leaf03]
-172.20.20.5 ansible_user=root hostname=leaf03
+172.20.20.5 ansible_user=root hostname=leaf03.com
 [spine01]
-172.20.20.3 ansible_user=root hostname=spine01
+172.20.20.3 ansible_user=root hostname=spine01.com
