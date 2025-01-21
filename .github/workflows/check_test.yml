@@ -16,11 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Uninstall System Ansible
-        run: |
-          sudo apt remove -y ansible
-          sudo apt autoremove -y
-
       - name: Install Python and Pip
         run: |
           sudo apt update
