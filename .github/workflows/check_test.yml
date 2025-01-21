@@ -1,4 +1,4 @@
-name: Ansible Playbook Deployment
+name: Lint
 
 on:
   push:
@@ -7,33 +7,28 @@ on:
   pull_request:
     branches:
       - main
-
-jobs:
-  test-and-deploy:
+      
+jobs:      
+  lint:
+    name: Run linters
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Python and Pip
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          
+      - name: Install python dependencies
+        run: pip install flake8 pylint
+        
+      - name: Lint with flake8
         run: |
-          sudo apt update
-          sudo apt install -y python3 python3-pip
+            flake8 . --count --select-E9,F63,F7,F82 --show-source --statistics
+            flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        
 
-      - name: Install Ansible via pip
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install "ansible-core==2.18.1"
-          pip install "ansible"
-
-      - name: Install Ansible Lint
-        run: |
-          pip install ansible-lint
-
-      - name: Lint Ansible Playbook
-        run: ansible-lint configure_all_hosts.yml
-        continue-on-error: true
-
-      - name: Check Ansible Playbook Syntax
-        run: ansible-playbook --syntax-check configure_all_hosts.yml   
+   
