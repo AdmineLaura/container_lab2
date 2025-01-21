@@ -42,7 +42,7 @@ jobs:
           python3 -c "import ansible; print(ansible.__version__)"
 
       - name: Lint Ansible Playbook
-        run: ansible-lint https://github.com/AdmineLaura/container_lab2/blob/main/configure_all_hosts.yml
+        run: ansible-lint configure_all_hosts.yml
 
       - name: Check Ansible Playbook Syntax
-        run: ansible-playbook --syntax-check https://github.com/AdmineLaura/container_lab2/blob/main/configure_all_hosts.yml
+        run: ansible-playbook --syntax-check configure_all_hosts.yml
